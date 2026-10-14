@@ -1,0 +1,66 @@
+import {
+  GraduationCap,
+  Stethoscope,
+  FlaskConical,
+  Award,
+  BookOpen,
+  Layers,
+  Users,
+  Zap,
+  Wind,
+  RefreshCw,
+  Sparkles,
+  Star,
+  Activity,
+  Target,
+  Eye,
+  Compass,
+  Lightbulb,
+  HeartHandshake,
+  BadgeCheck,
+  MessageSquare,
+  FileText,
+  ClipboardList,
+  PhoneCall,
+  CheckCircle2,
+  Calendar,
+  Droplets,
+  Info,
+} from 'lucide-react';
+
+// Registry maps the string icon names stored in src/data/siteData.js
+// to concrete lucide components.
+const registry = {
+  GraduationCap,
+  Stethoscope,
+  FlaskConical,
+  Award,
+  BookOpen,
+  Layers,
+  Users,
+  Zap,
+  Wind,
+  RefreshCw,
+  Sparkles,
+  Star,
+  Activity,
+  Target,
+  Eye,
+  Compass,
+  Lightbulb,
+  HeartHandshake,
+  BadgeCheck,
+  MessageSquare,
+  FileText,
+  ClipboardList,
+  PhoneCall,
+  CheckCircle2,
+  Calendar,
+  Droplets,
+  Info,
+};
+
+export default function Icon({ name, className = 'h-5 w-5', ...props }) {
+  const Cmp = registry[name] ?? Sparkles;
+  return <Cmp className={className} aria-hidden="true" {...props} />;
+}

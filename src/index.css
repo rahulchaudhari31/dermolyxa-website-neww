@@ -1,0 +1,223 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+/* ── Custom base styles ──────────────────────────────────── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Consistent, visible keyboard focus for all interactive elements.
+     Uses :where() (zero specificity) so component utilities can override. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid #8C6D29;
+  outline-offset: 2px;
+}
+
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    color: #1F2933;
+    background-color: #FFFFFF;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #1F2933;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  ::selection {
+    background-color: #0F5C63;
+    color: #ffffff;
+  }
+}
+
+/* ── Utility classes ──────────────────────────────────────── */
+@layer utilities {
+  .font-display {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+
+  .font-body {
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  .text-teal {
+    color: #0F5C63;
+  }
+
+  .text-gold {
+    color: #C9A24B;
+  }
+
+  .text-charcoal {
+    color: #1F2933;
+  }
+
+  .text-muted {
+    color: #64748B;
+  }
+
+  .bg-teal {
+    background-color: #0F5C63;
+  }
+
+  .bg-gold {
+    background-color: #C9A24B;
+  }
+
+  .bg-offwhite {
+    background-color: #F7F9FA;
+  }
+
+  .shadow-card {
+    box-shadow: 0 4px 24px rgba(15, 92, 99, 0.08);
+  }
+
+  .shadow-card-hover {
+    box-shadow: 0 12px 40px rgba(15, 92, 99, 0.16);
+  }
+
+  .shadow-gold {
+    box-shadow: 0 4px 24px rgba(201, 162, 75, 0.20);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background-color: #0F5C63;
+    color: #ffffff;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary:hover {
+    background-color: #0D4F56;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(15, 92, 99, 0.25);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background-color: transparent;
+    color: #0F5C63;
+    border: 2px solid #0F5C63;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+
+  .btn-outline:hover {
+    background-color: #0F5C63;
+    color: #ffffff;
+    transform: translateY(-2px);
+  }
+
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background-color: #C9A24B;
+    color: #ffffff;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-gold:hover {
+    background-color: #B08934;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(201, 162, 75, 0.30);
+  }
+
+  .card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 24px rgba(15, 92, 99, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .card:hover {
+    box-shadow: 0 12px 40px rgba(15, 92, 99, 0.16);
+    transform: translateY(-4px);
+  }
+
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .container-xl {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .gold-divider {
+    width: 3rem;
+    height: 3px;
+    background: linear-gradient(90deg, #C9A24B, #E8D09D);
+    border-radius: 2px;
+  }
+}
+
+/* ── Respect reduced-motion preferences ─────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-marquee {
+    animation: none !important;
+    transform: none !important;
+  }
+}
